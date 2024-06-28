@@ -18,7 +18,7 @@ class NotesScreen extends StatelessWidget {
         ..add(
           const NoteWatcherEvent.watchAll(),
         ),
-      child: HomeHeader(
+      child: SimpleHeader(
         body: BlocBuilder<NoteWatcherBloc, NoteWatcherState>(
           builder: (context, state) {
             return state.map(
@@ -40,7 +40,11 @@ class NotesScreen extends StatelessWidget {
                       amount: state.notes.size,
                     ),
                     const SimpleSearchField(),
-                    SliverList.builder(
+                    SliverGrid.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 250,
+                      ),
                       itemCount: state.notes.size,
                       itemBuilder: (context, index) {
                         final note = state.notes[index];

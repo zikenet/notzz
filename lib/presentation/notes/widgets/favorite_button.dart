@@ -12,7 +12,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
   late final ColorScheme _colorScheme = Theme.of(context).colorScheme;
 
   Icon get icon {
-    final IconData iconData = state ? Icons.star : Icons.star_outline;
+    final IconData iconData = state ? Icons.star_rounded : Icons.star_border;
 
     return Icon(
       iconData,
@@ -35,11 +35,8 @@ class _FavoriteButtonState extends State<FavoriteButton> {
       turns: turns,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 300),
-      child: FloatingActionButton(
-        elevation: 0,
-        shape: const CircleBorder(),
-        backgroundColor: _colorScheme.surface,
-        onPressed: () => _toggle(),
+      child: GestureDetector(
+        onTap: () => _toggle(),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: icon,

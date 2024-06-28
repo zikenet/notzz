@@ -7,19 +7,20 @@ ThemeData darkTheme = ThemeData(
   inputDecorationTheme: inputDecorationTheme(),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   brightness: Brightness.dark,
-  appBarTheme: const AppBarTheme(
-    systemOverlayStyle: SystemUiOverlayStyle(
-      // Status bar color
-      statusBarColor: Color(0XFF1C1C1C),
-      // Status bar brightness (optional)
-      statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-      statusBarBrightness: Brightness.light, // For iOS (dark icons)
-    ),
-    backgroundColor: Colors.transparent,
-    elevation: 0,
-    iconTheme: IconThemeData(color: Colors.white),
-    titleTextStyle: TextStyle(color: Colors.white),
-  ),
+  appBarTheme: appBarTheme(),
+  // const AppBarTheme(
+  //   systemOverlayStyle: SystemUiOverlayStyle(
+  //     // Status bar color
+  //     statusBarColor: Color(0XFF1C1C1C),
+  //     // Status bar brightness (optional)
+  //     statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+  //     statusBarBrightness: Brightness.light, // For iOS (dark icons)
+  //   ),
+  //   backgroundColor: Colors.transparent,
+  //   elevation: 0,
+  //   iconTheme: IconThemeData(color: Colors.white),
+  //   titleTextStyle: TextStyle(color: Colors.white),
+  // ),
   colorScheme: ColorScheme.dark(
     surface: const Color(0XFF1C1C1C),
     primary: const Color(0XFF323232),
@@ -86,17 +87,18 @@ TextTheme textTheme() {
   );
 }
 
-// AppBarTheme appBarTheme() {
-//   return AppBarTheme(
-//     color: Colors.white,
-//     elevation: 0,
-//     iconTheme: const IconThemeData(color: Colors.black),
-//     systemOverlayStyle: SystemUiOverlayStyle.dark,
-//     toolbarTextStyle: const TextTheme(
-//       titleLarge: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
-//     ).bodyMedium,
-//     titleTextStyle: const TextTheme(
-//       titleLarge: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
-//     ).titleLarge,
-//   );
-// }
+AppBarTheme appBarTheme() {
+  return AppBarTheme(
+    backgroundColor: const Color(0XFF323232),
+    // color: Colors.white,
+    // elevation: 0,
+    iconTheme: const IconThemeData(color: Colors.black),
+    systemOverlayStyle: SystemUiOverlayStyle.dark,
+    toolbarTextStyle: const TextTheme(
+      titleLarge: TextStyle(fontSize: 18),
+    ).bodyMedium,
+    titleTextStyle: const TextTheme(
+      titleLarge: TextStyle(fontSize: 18),
+    ).titleLarge,
+  );
+}
