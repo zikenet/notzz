@@ -1,11 +1,11 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notzz/applicaiton/auth/auth/auth_bloc.dart';
-import 'package:notzz/applicaiton/auth/login_form/login_form_bloc.dart';
 import 'package:notzz/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:notzz/presentation/core/routes/routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notzz/presentation/core/theme/theme.dart';
+import 'package:notzz/presentation/core/routes/routes.dart';
+import 'package:notzz/applicaiton/auth/auth/auth_bloc.dart';
+import 'package:notzz/applicaiton/auth/login_form/login_form_bloc.dart';
 
 void main() {
   configureDependencies(Environment.dev);
@@ -43,11 +43,6 @@ class MainApp extends StatelessWidget {
               ],
               child: widget!,
             );
-            // home: Scaffold(
-            //   body: Center(
-            //     child: Text('Hello World!'),
-            //   ),
-            // ),
           },
         ),
       ),
