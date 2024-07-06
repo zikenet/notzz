@@ -18,7 +18,6 @@ class SimpleHeader extends HookWidget {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(useContext()).size.width;
     return Scaffold(
-      key: GlobalKey<ScaffoldState>(),
       drawer: width > 600 ? null : drawerItems(),
       // SafeArea(
       //   child: Drawer(

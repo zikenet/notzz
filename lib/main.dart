@@ -31,19 +31,6 @@ class MainApp extends StatelessWidget {
           theme: lightTheme,
           darkTheme: darkTheme,
           routerConfig: AppRouter(authBloc: context.read<AuthBloc>()).router,
-          builder: (context, widget) {
-            return MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (BuildContext context) => getIt<LoginFormBloc>(),
-                ),
-                BlocProvider(
-                  create: (BuildContext context) => getIt<AuthBloc>(),
-                )
-              ],
-              child: widget!,
-            );
-          },
         ),
       ),
     );

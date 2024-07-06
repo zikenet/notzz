@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notzz/presentation/core/animations/animations.dart';
+import 'package:notzz/presentation/core/transitions/nav_transition.dart';
 import 'package:notzz/presentation/core/widgets/destination.dart';
 
 class SimpleNavigationRail extends StatelessWidget {
@@ -6,47 +8,52 @@ class SimpleNavigationRail extends StatelessWidget {
     super.key,
     required this.backgroundColor,
     required this.selectedIndex,
+    required this.railAnimation,
     this.onDestinationSelected,
   });
 
   final Color backgroundColor;
   final int selectedIndex;
+  final RailAnimation railAnimation;
   final ValueChanged<int>? onDestinationSelected;
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return NavigationRail(
-      selectedIndex: selectedIndex,
+    return NavRailTransition(
+      animation: railAnimation,
       backgroundColor: backgroundColor,
-      onDestinationSelected: onDestinationSelected,
-      leading: Column(
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-          ),
-          const SizedBox(height: 8),
-          FloatingActionButton.small(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
+      child: NavigationRail(
+        selectedIndex: selectedIndex,
+        backgroundColor: backgroundColor,
+        onDestinationSelected: onDestinationSelected,
+        leading: Column(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.menu),
             ),
-            // backgroundColor: colorScheme.tertiaryContainer,
-            // foregroundColor: colorScheme.onTertiaryContainer,
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-        ],
+            const SizedBox(height: 8),
+            FloatingActionButton.small(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              // backgroundColor: colorScheme.tertiaryContainer,
+              // foregroundColor: colorScheme.onTertiaryContainer,
+              onPressed: () {},
+              child: const Icon(Icons.add),
+            ),
+          ],
+        ),
+        groupAlignment: -0.85,
+        destinations: destinations.map<NavigationRailDestination>((d) {
+          return NavigationRailDestination(
+            icon: Icon(d.icon),
+            label: Text(d.label),
+          );
+        }).toList(),
       ),
-      groupAlignment: -0.85,
-      destinations: destinations.map<NavigationRailDestination>((d) {
-        return NavigationRailDestination(
-          icon: Icon(d.icon),
-          label: Text(d.label),
-        );
-      }).toList(),
     );
   }
 }
