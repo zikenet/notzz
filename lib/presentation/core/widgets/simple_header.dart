@@ -1,4 +1,3 @@
-import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
@@ -19,54 +18,18 @@ class SimpleHeader extends HookWidget {
     final double width = MediaQuery.of(useContext()).size.width;
     return Scaffold(
       drawer: width > 600 ? null : drawerItems(),
-      // SafeArea(
-      //   child: Drawer(
-      //     shape: const RoundedRectangleBorder(
-      //       borderRadius: BorderRadius.horizontal(
-      //         right: Radius.circular(10),
-      //       ),
-      //     ),
-      //     child: Padding(
-      //       padding: const EdgeInsets.symmetric(vertical: 10.0),
-      //       child: Column(
-      //         crossAxisAlignment: CrossAxisAlignment.center,
-      //         children: [
-      //           const SimpleDrawerHeader(),
-      //           const SimpleDivider(),
-      //           ...destinations.map<ListTile>((d) {
-      //             return ListTile(
-      //               horizontalTitleGap: 0,
-      //               leading: Icon(
-      //                 d.icon,
-      //                 size: 23,
-      //               ),
-      //               title: Text(
-      //                 d.label,
-      //                 style: const TextStyle(color: Colors.white),
-      //               ),
-      //               trailing: d.trailing,
-      //             );
-      //           }),
-      //         ],
-      //       ),
-      //     ),
-      //   ),
-      // ),
+      body: body,
       floatingActionButton: FloatingActionButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         onPressed: () {},
         child: const Icon(
           size: 22,
-          Iconsax.add,
+          Icons.add,
           color: Colors.black,
         ),
       ),
-      body: body,
     );
   }
 
-  /// This is outside the build method, this method doesn't have the access to context
-  /// Here we can use the useContext() directly in place of context
   Widget drawerItems() => SafeArea(
         child: Drawer(
           shape: const RoundedRectangleBorder(
@@ -100,8 +63,6 @@ class SimpleHeader extends HookWidget {
           ),
         ),
       );
-
-  // SizedBox(height: MediaQuery.of(useContext()).size.height * 0.2);
 }
 
 class SimpleDivider extends StatelessWidget {

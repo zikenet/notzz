@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:notzz/presentation/core/widgets/destination.dart';
 import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/transitions/nav_transition.dart';
-import 'package:notzz/presentation/core/widgets/destination.dart';
 
 class SimpleNavigationRail extends StatelessWidget {
   const SimpleNavigationRail({
@@ -26,6 +26,8 @@ class SimpleNavigationRail extends StatelessWidget {
         selectedIndex: selectedIndex,
         backgroundColor: backgroundColor,
         onDestinationSelected: onDestinationSelected,
+        unselectedIconTheme: const IconThemeData(color: Colors.white60),
+        selectedIconTheme: const IconThemeData(color: Colors.white),
         leading: Column(
           children: [
             IconButton(
@@ -36,7 +38,7 @@ class SimpleNavigationRail extends StatelessWidget {
             FloatingActionButton.small(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(10),
+                  Radius.circular(8),
                 ),
               ),
               // backgroundColor: colorScheme.tertiaryContainer,

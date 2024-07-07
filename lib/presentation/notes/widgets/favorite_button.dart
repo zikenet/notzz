@@ -9,7 +9,6 @@ class FavoriteButton extends StatefulWidget {
 
 class _FavoriteButtonState extends State<FavoriteButton> {
   bool state = false;
-  late final ColorScheme _colorScheme = Theme.of(context).colorScheme;
 
   Icon get icon {
     final IconData iconData = state ? Icons.star_rounded : Icons.star_border;
