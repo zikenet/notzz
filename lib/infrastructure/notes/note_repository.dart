@@ -42,43 +42,26 @@ final List<Map<String, dynamic>> noteItems = [
   {
     "id": "asdf-1",
     "title": "first note",
-    "body":
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "body": r'[{"insert":"Jgskgskydydy\n"}]',
     "color": 4294966736,
   },
   {
     "id": "asdf-2",
     "title": "second note",
-    "body":
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+    "body": r'[{"insert":"Asdfasdfdafdfasdfasdf\n"}]',
     "color": 4291883200,
   },
   {
-    "id": "asdf-3",
-    "title": "third note",
-    "body":
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-    "color": 4294892630,
+    "id": "asdfadf",
+    "title": "thrid nots",
+    "body": r'[{"insert": "Flutter Quill\n"}]',
+    "color": 4291883200,
   },
   {
-    "id": "asdf-4",
-    "title": "fourth note",
+    "id": "asdfasdfadf",
+    "title": "fourth notes",
     "body":
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-    "color": 4294966736,
-  },
-  {
-    "id": "asdf-5",
-    "title": "fifth note",
-    "body":
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-    "color": 4294966736,
-  },
-  {
-    "id": "asdf-6",
-    "title": "sixth note",
-    "body":
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-    "color": 4294966736,
-  },
+        r'[{"insert": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut tortor lacus. Nullam feugiat blandit vulputate. Pellentesque blandit, ante ac ornare tempus, mi massa feugiat ante, id eleifend neque velit eget velit. Proin aliquet ipsum et tortor rutrum tristique. Pellentesque quis diam facilisis, tincidunt augue ac, rhoncus lectus. Vivamus ornare sit amet odio vitae condimentum. Nullam nec porttitor dolor. Integer nec pharetra sapien. Duis lobortis magna quis sollicitudin commodo. In tristique ex ac nisl tincidunt, et interdum sapien rhoncus. Suspendisse potenti.\n"}]',
+    "color": 4291883200,
+  }
 ];
