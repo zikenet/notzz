@@ -33,15 +33,15 @@ class _AnimatedFloatingActionButton
   Widget build(BuildContext context) {
     return ScaleTransition(
       scale: _scaleAnimation,
-      child: FloatingActionButton(
+      child: FloatingActionButton.small(
         elevation: widget.elevation,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(lerpDouble(30, 15, _shapeAnimation.value)!),
+            Radius.circular(lerpDouble(10, 10, _shapeAnimation.value)!),
           ),
         ),
-        backgroundColor: _colorScheme.tertiaryContainer,
-        foregroundColor: _colorScheme.onTertiaryContainer,
+        // backgroundColor: _colorScheme.tertiaryContainer,
+        // foregroundColor: _colorScheme.onTertiaryContainer,
         onPressed: widget.onPressed,
         child: widget.child,
       ),

@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
+import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/widgets/destination.dart';
 import 'package:notzz/presentation/core/widgets/simple_drawer_header.dart';
+import 'package:notzz/presentation/core/widgets/animated_floating_action_button.dart';
 
 class SimpleHeader extends HookWidget {
   final Widget body;
   final VoidCallback onActionButton;
+  final BarAnimation barAnimaiton;
   const SimpleHeader({
     super.key,
     required this.body,
     required this.onActionButton,
+    required this.barAnimaiton,
   });
 
   @override
@@ -19,13 +23,11 @@ class SimpleHeader extends HookWidget {
     return Scaffold(
       drawer: width > 600 ? null : drawerItems(),
       body: body,
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: AnimatedFloatingActionButton(
+        animation: barAnimaiton,
+        elevation: 0,
         onPressed: () {},
-        child: const Icon(
-          size: 22,
-          Icons.add,
-          color: Colors.black,
-        ),
+        child: const Icon(Icons.add),
       ),
     );
   }
