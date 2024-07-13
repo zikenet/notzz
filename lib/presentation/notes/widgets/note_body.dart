@@ -1,40 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:notzz/domain/note/note.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:notzz/presentation/core/widgets/simple_header.dart';
 import 'package:notzz/presentation/notes/widgets/note_card.dart';
 import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/widgets/simple_appbar.dart';
 import 'package:notzz/presentation/core/widgets/simple_search_field.dart';
 import 'package:notzz/presentation/core/widgets/simple_navigation_rail.dart';
 
-class NoteBody extends StatefulWidget {
+class NoteBody extends HookWidget {
   const NoteBody({super.key, required this.notes});
 
   final KtList<Note> notes;
 
   @override
-  State<NoteBody> createState() => _NoteBodyState();
-}
+  Widget build(BuildContext context) {
+    final controller = useAnimationController(
+      duration: const Duration(milliseconds: 1000),
+      reverseDuration: const Duration(milliseconds: 1250),
+      initialValue: 0,
+      // vsync: this,
+    );
 
-class _NoteBodyState extends State<NoteBody>
-    with SingleTickerProviderStateMixin {
-  late final controller = AnimationController(
-    duration: const Duration(milliseconds: 1000),
-    reverseDuration: const Duration(milliseconds: 1250),
-    value: 0,
-    vsync: this,
-  );
+    final railAnimation = RailAnimation(parent: controller);
+    final railFabAnimation = RailFabAnimation(parent: controller);
+    final BarAnimation barAnimation = BarAnimation(parent: controller);
 
-  late final railAnimation = RailAnimation(parent: controller);
+    int selectedIndex = 0;
 
-  int selectedIndex = 0;
-
-  bool controllerInitialized = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.of(useContext()).size.width;
     final AnimationStatus status = controller.status;
     if (width > 600) {
       if (status != AnimationStatus.forward &&
@@ -47,51 +42,53 @@ class _NoteBodyState extends State<NoteBody>
         controller.reverse();
       }
     }
-    if (!controllerInitialized) {
-      controllerInitialized = true;
-      controller.value = width > 600 ? 1 : 0;
-    }
-  }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      child: AnimatedBuilder(
+    return SimpleHeader(
+      barAnimaiton: barAnimation,
+      onActionButton: () {},
+      body: AnimatedBuilder(
         animation: controller,
         builder: (context, child) => Row(
           children: [
             SimpleNavigationRail(
               railAnimation: railAnimation,
-              backgroundColor: const Color(0xFF424242),
               selectedIndex: selectedIndex,
+              railFabAnimation: railFabAnimation,
+              backgroundColor: const Color(0xFF424242),
             ),
             Expanded(
               child: CustomScrollView(
+                physics: const BouncingScrollPhysics(),
                 slivers: [
                   SimpleAppBar(
                     title: 'All Notes',
                     item: 'notes',
-                    amount: widget.notes.size,
+                    amount: notes.size,
                   ),
                   const SimpleSearchField(),
-                  SliverList.builder(
-                    // gridDelegate:
-                    //     const SliverGridDelegateWithMaxCrossAxisExtent(
-                    // maxCrossAxisExtent: 250,
-                    // ),
-                    itemCount: widget.notes.size,
-                    itemBuilder: (context, index) {
-                      final note = widget.notes[index];
-                      if (note.failureOption.isSome()) {
-                        return Container(
-                          color: Colors.red,
-                          width: 100,
-                          height: 100,
-                        );
-                      } else {
-                        return NoteCard(note: note);
-                      }
-                    },
+                  // SliverList.builder(
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    sliver: SliverGrid.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 235,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemCount: notes.size,
+                      itemBuilder: (context, index) {
+                        final note = notes[index];
+                        if (note.failureOption.isSome()) {
+                          return Container(
+                            color: Colors.green,
+                            width: 100,
+                            height: 100,
+                          );
+                        } else {
+                          return NoteCard(note: note);
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -101,10 +98,10 @@ class _NoteBodyState extends State<NoteBody>
       ),
     );
   }
+  // @override
 
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  // void dispose() {
+  //   controller.dispose();
+  //   super.dispose();
+  // }
 }
