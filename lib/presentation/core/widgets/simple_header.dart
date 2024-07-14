@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/widgets/destination.dart';
 import 'package:notzz/presentation/core/widgets/simple_drawer_header.dart';
@@ -27,7 +28,7 @@ class SimpleHeader extends HookWidget {
         animation: barAnimaiton,
         elevation: 0,
         onPressed: () {},
-        child: const Icon(Icons.add),
+        child: const Icon(Iconsax.edit_2),
       ),
     );
   }

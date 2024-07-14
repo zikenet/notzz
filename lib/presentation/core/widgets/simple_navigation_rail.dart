@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:notzz/presentation/core/widgets/animated_floating_action_button.dart';
 import 'package:notzz/presentation/core/widgets/destination.dart';
 import 'package:notzz/presentation/core/animations/animations.dart';
@@ -48,7 +49,7 @@ class SimpleNavigationRail extends StatelessWidget {
                     animation: railFabAnimation,
                     elevation: 0,
                     onPressed: () {},
-                    child: const Icon(Icons.add),
+                    child: const Icon(Iconsax.edit_2),
                   ),
                   // FloatingActionButton.small(
                   //   shape: const RoundedRectangleBorder(

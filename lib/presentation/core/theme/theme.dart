@@ -69,11 +69,11 @@ ThemeData lightTheme = ThemeData(
 InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(16),
-    borderSide: const BorderSide(color: Colors.grey),
+    borderSide: const BorderSide(color: Colors.transparent),
     gapPadding: 10,
   );
   return InputDecorationTheme(
-    contentPadding: const EdgeInsets.symmetric(horizontal: 42, vertical: 22),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 42, vertical: 15),
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
     border: outlineInputBorder,

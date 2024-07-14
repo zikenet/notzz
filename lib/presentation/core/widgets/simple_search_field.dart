@@ -30,10 +30,6 @@ class SimpleSearchField extends StatelessWidget {
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.grey.withOpacity(0.3),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 42,
-                vertical: 18,
-              ),
               // enabledBorder: Theme.of(context)
               //     .inputDecorationTheme
               //     .focusedBorder!
