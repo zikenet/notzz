@@ -66,15 +66,15 @@ class NoteBody extends HookWidget {
                     amount: notes.size,
                   ),
                   const SimpleSearchField(),
-                  // SliverList.builder(
                   SliverPadding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    sliver: SliverGrid.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 235,
-                        mainAxisSpacing: 10,
-                      ),
+                    sliver: SliverList.builder(
+                      // SliverGrid.builder(
+                      //   gridDelegate:
+                      //       const SliverGridDelegateWithMaxCrossAxisExtent(
+                      //     maxCrossAxisExtent: 235,
+                      //     mainAxisSpacing: 10,
+                      //   ),
                       itemCount: notes.size,
                       itemBuilder: (context, index) {
                         final note = notes[index];
