@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:notzz/presentation/core/widgets/animated_floating_action_button.dart';
 import 'package:notzz/presentation/core/widgets/destination.dart';
 import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/transitions/nav_transition.dart';
+import 'package:notzz/presentation/core/widgets/animated_floating_action_button.dart';
 
 class SimpleNavigationRail extends StatelessWidget {
   const SimpleNavigationRail({
@@ -51,17 +51,6 @@ class SimpleNavigationRail extends StatelessWidget {
                     onPressed: () {},
                     child: const Icon(Iconsax.edit_2),
                   ),
-                  // FloatingActionButton.small(
-                  //   shape: const RoundedRectangleBorder(
-                  //     borderRadius: BorderRadius.all(
-                  //       Radius.circular(8),
-                  //     ),
-                  //   ),
-                  //   // backgroundColor: colorScheme.tertiaryContainer,
-                  //   // foregroundColor: colorScheme.onTertiaryContainer,
-                  //   onPressed: () {},
-                  //   child: const Icon(Icons.add),
-                  // ),
                 ],
               ),
               groupAlignment: -0.85,

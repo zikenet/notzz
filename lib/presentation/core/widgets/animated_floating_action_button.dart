@@ -26,24 +26,30 @@ class _AnimatedFloatingActionButton
   late final ColorScheme _colorScheme = Theme.of(context).colorScheme;
   late final Animation<double> _scaleAnimation =
       ScaleAnimation(parent: widget.animation);
-  late final Animation<double> _shapeAnimation =
+  late final Animation<double> shapeAnimation =
       ShapeAnimation(parent: widget.animation);
 
   @override
   Widget build(BuildContext context) {
     return ScaleTransition(
       scale: _scaleAnimation,
-      child: FloatingActionButton.small(
-        elevation: widget.elevation,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(lerpDouble(10, 10, _shapeAnimation.value)!),
+      child: SizedBox(
+        width: 55,
+        height: 55,
+        child: FittedBox(
+          child: FloatingActionButton(
+            elevation: widget.elevation,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(lerpDouble(50, 50, shapeAnimation.value)!),
+              ),
+            ),
+            // backgroundColor: _colorScheme.tertiaryContainer,
+            // foregroundColor: _colorScheme.onTertiaryContainer,
+            onPressed: widget.onPressed,
+            child: widget.child,
           ),
         ),
-        // backgroundColor: _colorScheme.tertiaryContainer,
-        // foregroundColor: _colorScheme.onTertiaryContainer,
-        onPressed: widget.onPressed,
-        child: widget.child,
       ),
     );
   }
