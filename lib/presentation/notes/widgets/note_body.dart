@@ -9,7 +9,7 @@ import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/widgets/simple_appbar.dart';
 import 'package:notzz/presentation/core/widgets/simple_search_field.dart';
 import 'package:notzz/presentation/core/widgets/simple_navigation_rail.dart';
-import 'package:notzz/presentation/notes/widgets/note_editor.dart';
+import 'package:notzz/presentation/notes/widgets/note_form.dart';
 
 class NoteBody extends HookWidget {
   const NoteBody({super.key, required this.notes});
@@ -96,7 +96,7 @@ class NoteBody extends HookWidget {
                     ),
                   ],
                 ),
-                two: const NoteEditor(),
+                two: const NoteForm(),
               ),
             )
           ],
