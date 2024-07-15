@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:notzz/domain/note/note.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:notzz/presentation/core/transitions/editor_transition.dart';
 import 'package:notzz/presentation/core/widgets/simple_header.dart';
 import 'package:notzz/presentation/notes/widgets/note_card.dart';
 import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/widgets/simple_appbar.dart';
 import 'package:notzz/presentation/core/widgets/simple_search_field.dart';
 import 'package:notzz/presentation/core/widgets/simple_navigation_rail.dart';
+import 'package:notzz/presentation/notes/widgets/note_editor.dart';
 
 class NoteBody extends HookWidget {
   const NoteBody({super.key, required this.notes});
@@ -57,40 +59,44 @@ class NoteBody extends HookWidget {
               backgroundColor: const Color(0xFF424242),
             ),
             Expanded(
-              child: CustomScrollView(
-                physics: const BouncingScrollPhysics(),
-                slivers: [
-                  SimpleAppBar(
-                    title: 'All Notes',
-                    item: 'notes',
-                    amount: notes.size,
-                  ),
-                  const SimpleSearchField(),
-                  SliverPadding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    sliver: SliverList.builder(
-                      // SliverGrid.builder(
-                      //   gridDelegate:
-                      //       const SliverGridDelegateWithMaxCrossAxisExtent(
-                      //     maxCrossAxisExtent: 235,
-                      //     mainAxisSpacing: 10,
-                      //   ),
-                      itemCount: notes.size,
-                      itemBuilder: (context, index) {
-                        final note = notes[index];
-                        if (note.failureOption.isSome()) {
-                          return Container(
-                            color: Colors.green,
-                            width: 100,
-                            height: 100,
-                          );
-                        } else {
-                          return NoteCard(note: note);
-                        }
-                      },
+              child: EditorTransition(
+                animation: railAnimation,
+                one: CustomScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  slivers: [
+                    SimpleAppBar(
+                      title: 'All Notes',
+                      item: 'notes',
+                      amount: notes.size,
                     ),
-                  ),
-                ],
+                    const SimpleSearchField(),
+                    SliverPadding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      sliver: SliverList.builder(
+                        // SliverGrid.builder(
+                        //   gridDelegate:
+                        //       const SliverGridDelegateWithMaxCrossAxisExtent(
+                        //     maxCrossAxisExtent: 235,
+                        //     mainAxisSpacing: 10,
+                        //   ),
+                        itemCount: notes.size,
+                        itemBuilder: (context, index) {
+                          final note = notes[index];
+                          if (note.failureOption.isSome()) {
+                            return Container(
+                              color: Colors.green,
+                              width: 100,
+                              height: 100,
+                            );
+                          } else {
+                            return NoteCard(note: note);
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                two: const NoteEditor(),
               ),
             )
           ],

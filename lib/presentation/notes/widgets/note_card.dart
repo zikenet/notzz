@@ -62,20 +62,6 @@ class NoteCard extends HookWidget {
                     focusNode: FocusNode(),
                     scrollController: scrollController,
                   ),
-
-                  //       QuillEditor(
-                  //         configurations: QuillEditorConfigurations(
-                  //           padding: const EdgeInsets.symmetric(vertical: 10),
-                  //           maxHeight: 100,
-                  //           scrollable: false,
-                  //           controller: quillController,
-                  //           enableInteractiveSelection: false,
-                  //           // autoFocus: true,
-                  //           showCursor: false,
-                  //         ),
-                  //         focusNode: FocusNode(),
-                  //         scrollController: scrollController,
-                  //       ),
                 ],
               ),
               subtitle: const Padding(
