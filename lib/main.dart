@@ -28,6 +28,7 @@ class MainApp extends StatelessWidget {
       ],
       child: Builder(
         builder: (context) => MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           theme: lightTheme,
           darkTheme: darkTheme,
           routerConfig: AppRouter(authBloc: context.read<AuthBloc>()).router,

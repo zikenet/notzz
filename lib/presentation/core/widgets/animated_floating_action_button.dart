@@ -34,14 +34,14 @@ class _AnimatedFloatingActionButton
     return ScaleTransition(
       scale: _scaleAnimation,
       child: SizedBox(
-        width: 55,
-        height: 55,
+        width: 50,
+        height: 50,
         child: FittedBox(
           child: FloatingActionButton(
             elevation: widget.elevation,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
-                Radius.circular(lerpDouble(50, 50, shapeAnimation.value)!),
+                Radius.circular(lerpDouble(15, 15, shapeAnimation.value)!),
               ),
             ),
             // backgroundColor: _colorScheme.tertiaryContainer,
