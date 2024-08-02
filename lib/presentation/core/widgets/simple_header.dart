@@ -20,8 +20,9 @@ class SimpleHeader extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(useContext()).size.width;
+    final double width = MediaQuery.sizeOf(useContext()).width;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       drawer: width > 600 ? null : drawerItems(),
       body: body,
       floatingActionButton: AnimatedFloatingActionButton(

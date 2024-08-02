@@ -30,7 +30,8 @@ class NoteForm extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('hello World'),
+              elevation: 0,
+              title: const Text('Hello world'),
             ),
             body: const FormBody(),
           );
@@ -121,7 +122,8 @@ class FormBody extends HookWidget {
         quillController.document =
             Document.fromJson(jsonDecode(state.note.body.getOrCrash()));
       },
-      child: SafeArea(
+      child: Container(
+        color: const Color(0xFF424242),
         child: Column(
           children: [
             Expanded(

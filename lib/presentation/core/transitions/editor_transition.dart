@@ -33,7 +33,7 @@ class _EditorTransitionState extends State<EditorTransition> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.sizeOf(context).width;
     double nextFlexFactor = switch (width) {
       >= 800 && < 1200 => lerpDouble(1000, 2000, (width - 800) / 400)!,
       >= 1200 && < 1600 => lerpDouble(2000, 3000, (width - 1200) / 400)!,
@@ -74,20 +74,22 @@ class _EditorTransitionState extends State<EditorTransition> {
   Widget build(BuildContext context) {
     return widthAnimation.value.toInt() == 0
         ? widget.one
-        : Row(
-            children: [
-              Flexible(
-                flex: 1000,
-                child: widget.one,
-              ),
-              Flexible(
-                flex: widthAnimation.value.toInt(),
-                child: FractionalTranslation(
-                  translation: offsetAnimation.value,
-                  child: widget.two,
-                ),
-              ),
-            ],
-          );
+        : widthAnimation.value.toInt() > 100
+            ? Row(
+                children: [
+                  Flexible(
+                    flex: 1000,
+                    child: widget.one,
+                  ),
+                  Flexible(
+                    flex: widthAnimation.value.toInt(),
+                    child: FractionalTranslation(
+                      translation: offsetAnimation.value,
+                      child: widget.two,
+                    ),
+                  ),
+                ],
+              )
+            : widget.one;
   }
 }

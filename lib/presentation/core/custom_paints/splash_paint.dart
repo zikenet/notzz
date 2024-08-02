@@ -15,8 +15,8 @@ class SplashPainter extends CustomPainter {
     required this.radius,
   }) {
     color = Colors.grey;
-    statusBarHeight = MediaQuery.of(context).padding.top;
-    screenWidth = MediaQuery.of(context).size.width;
+    statusBarHeight = MediaQuery.sizeOf(context).height;
+    screenWidth = MediaQuery.sizeOf(context).width;
   }
 
   @override

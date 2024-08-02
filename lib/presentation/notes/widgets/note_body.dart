@@ -4,11 +4,11 @@ import 'package:notzz/domain/note/note.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:notzz/presentation/core/transitions/editor_transition.dart';
 import 'package:notzz/presentation/core/widgets/simple_header.dart';
-import 'package:notzz/presentation/notes/widgets/note_card.dart';
 import 'package:notzz/presentation/core/animations/animations.dart';
 import 'package:notzz/presentation/core/widgets/simple_appbar.dart';
 import 'package:notzz/presentation/core/widgets/simple_search_field.dart';
 import 'package:notzz/presentation/core/widgets/simple_navigation_rail.dart';
+import 'package:notzz/presentation/notes/widgets/note_card.dart';
 import 'package:notzz/presentation/notes/widgets/note_form.dart';
 
 class NoteBody extends HookWidget {
@@ -31,7 +31,7 @@ class NoteBody extends HookWidget {
 
     int selectedIndex = 0;
 
-    final double width = MediaQuery.of(useContext()).size.width;
+    final double width = MediaQuery.sizeOf(useContext()).width;
     final AnimationStatus status = controller.status;
     if (width > 600) {
       if (status != AnimationStatus.forward &&
@@ -89,6 +89,11 @@ class NoteBody extends HookWidget {
                               height: 100,
                             );
                           } else {
+                            // return Container(
+                            //   height: 100,
+                            //   width: 100,
+                            //   color: Colors.blue,
+                            // );
                             return NoteCard(note: note);
                           }
                         },

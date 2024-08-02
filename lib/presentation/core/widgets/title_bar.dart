@@ -66,7 +66,7 @@ class TitleBar extends HookWidget implements PreferredSizeWidget {
                 containerHeight: height,
                 center: Offset(rippleStartX.value, rippleStartY.value),
                 // increase radius in % from 0% to 100% of screenWidth
-                radius: animation.value * MediaQuery.of(context).size.width,
+                radius: animation.value * MediaQuery.sizeOf(context).width,
                 context: context,
               ),
             );
